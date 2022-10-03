@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+    {% load leaflet_tags %}
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script>
+        {% for detail in profile %}
+            function map_init_basic(map, options) {
+                L.marker([{{ detail.lat }}, {{ detail.lon }}]).addTo(map);
+                L.map.setView([{{ detail.lat }}, {{ detail.lon }}], 10);
+            }
+        {% endfor %}
+
+    </script>
+
+    <div class="container">
+        <div class="row" style="margin-top: 5em; height: 600px;">
+            {% leaflet_map "yourmap" callback="window.map_init_basic" %}
+        </div>
+    </div>
+
+{% endblock content %}

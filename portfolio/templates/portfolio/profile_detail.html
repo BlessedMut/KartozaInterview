@@ -1,0 +1,46 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <section id="about-section" class="pt-5 pb-5" style="margin-top: 100px;">
+            <div class="container wrapabout">
+                <div class="red"></div>
+                <div class="row">
+                    <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                        <div class="blockabout">
+                            <div class="blockabout-inner text-center text-sm-start">
+                                <div class="title-big pb-3 mb-3">
+                                    <h3>About {{ user.username }}</h3>
+                                    <p class="description-p text-muted pe-0 pe-lg-0">
+                                        Last login: {{ user.last_login }}
+                                    </p>
+                                </div>
+                                <div class="card" style="width: 25rem;">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Email: {{ user.email }}</li>
+                                        <li class="list-group-item">
+                                            Fullname: {{ user.first_name }} {{ user.last_name }}</li>
+                                        <li class="list-group-item">Latitude: {{ user.lat }}</li>
+                                        <li class="list-group-item">Longitude: {{ user.lon }}</li>
+                                    </ul>
+                                    <div class="card-body">
+                                        <li class="list-group-item">Address: {{ user.address }}</li>
+                                        <li class="list-group-item">Phone Number: {{ user.phone }}</li>
+                                    </div>
+                                </div>
+                                <a href="{% url 'profile.edit' pk=user.id %}" class="btn rey-btn mt-3">Edit
+                                    Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-5 mt-lg-0">
+                        <figure class="potoaboutwrap">
+                            <img src="{% static '/images/map.jpg' %}"
+                                 style="height: 500px; width: 650px; padding-right: 5em;" alt="potoabout"/>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock content %}

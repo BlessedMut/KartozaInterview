@@ -1,0 +1,83 @@
+{% extends 'portfolio/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+                  integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous"/>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Page title -->
+                        <div class="my-5">
+                            <h3>Edit Profile</h3>
+                            <hr>
+                        </div>
+                        <!-- Form START -->
+                        <form class="file-upload" method="POST">
+                            {% csrf_token %}
+                            <div class="row mb-5 gx-5">
+                                <!-- Contact detail -->
+                                <div class="col-xxl-8 mb-5 mb-xxl-0">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="mb-4 mt-0">Contact detail</h4>
+                                            <!-- First Name -->
+                                            <div class="col-md-6">
+                                                {{ form.first_name|as_crispy_field }}
+                                            </div>
+                                            <!-- Last name -->
+{#                                            <div class="col-md-6">#}
+{#                                                {{ form.last_name|as_crispy_field }}#}
+{#                                            </div>#}
+                                            <!-- Username -->
+                                            <div class="col-md-6">
+                                                {{ form.username|as_crispy_field }}
+                                            </div>
+                                            <!-- Mobile number -->
+                                            <div class="col-md-6">
+                                                {{ form.phone|as_crispy_field }}
+                                            </div>
+                                            <!-- Email -->
+                                            <div class="col-md-6">
+                                                {{ form.email|as_crispy_field }}
+                                            </div>
+                                            <!-- Address -->
+                                            <div class="col-md-6">
+                                                {{ form.address|as_crispy_field }}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {{ form.lat|as_crispy_field }}
+
+                                                {{ form.lon|as_crispy_field }}
+                                            </div>
+                                        </div> <!-- Row END -->
+                                    </div>
+                                </div>
+                                <!-- Change Password -->
+                                <div class="col-xxl-4">
+                                    <div class="bg-secondary-soft px-4 py-5 rounded">
+                                        <div class="row g-3">
+                                            <h4 class="my-4">Change Password</h4>
+                                            <!-- Old password -->
+                                            <div class="col-md-6">
+                                                {{ form.password|as_crispy_field }}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- button -->
+                                    <div class="gap-3 d-md-flex justify-content-md-end text-center pt-5">
+                                        <button type="submit" class="btn rey-btn mt-3">Update profile</button>
+                                    </div>
+                                </div>
+                            </div> <!-- Row END -->
+
+                        </form> <!-- Form END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
